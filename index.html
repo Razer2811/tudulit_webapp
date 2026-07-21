@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Đu Lít</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/gioi-thieu-o-vuong-co-dau-tich-trong-word.jpg" type="image/x-icon">
+</head>
+
+<body>
+
+    <body>
+        <main class="todo-app">
+            <h1>TU ĐU LÍT</h1>
+
+            <form id="todo-form" class="todo-form">
+                <input id="todo-input" type="text" placeholder="Nhập công việc cần làm..." autocomplete="off">
+                <button type="submit">Thêm</button>
+            </form>
+
+            <p id="message" class="message"></p>
+            <div class="filters">
+                <button type="button" class="filter-button active" data-filter="all">
+                    Tất cả
+                </button>
+
+                <button type="button" class="filter-button" data-filter="active">
+                    Chưa xong
+                </button>
+
+                <button type="button" class="filter-button" data-filter="completed">
+                    Đã xong
+                </button>
+            </div>
+            <ul id="todo-list" class="todo-list"></ul>
+
+            <p id="todo-count">Chưa có công việc nào.</p>
+        </main>
+
+        <script src="js/storage.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+    <script src="js/app.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+
+</body>
+
+</html>
