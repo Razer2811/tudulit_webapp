@@ -15,6 +15,17 @@ function renderTodos(todos, filter, onToggleTodo, onDeleteTodo) {
         return true;
     });
 
+    if (filteredTodos.length === 0) {
+        const emptyState = document.createElement("li");
+        emptyState.className = "empty-state";
+        emptyState.textContent = todos.length === 0
+            ? "Chưa có công việc nào. Hãy thêm việc đầu tiên của bạn."
+            : "Không có công việc nào trong mục này.";
+
+        todoList.appendChild(emptyState);
+        return;
+    }
+
     for (const todo of filteredTodos) {
         const li = document.createElement("li");
 
@@ -25,6 +36,7 @@ function renderTodos(todos, filter, onToggleTodo, onDeleteTodo) {
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = todo.completed;
+        checkbox.setAttribute("aria-label", `Đánh dấu ${todo.text} là ${todo.completed ? "chưa hoàn thành" : "hoàn thành"}`);
 
         const span = document.createElement("span");
         span.className = "todo-text";
@@ -33,6 +45,7 @@ function renderTodos(todos, filter, onToggleTodo, onDeleteTodo) {
         const deleteButton = document.createElement("button");
         deleteButton.className = "delete-button";
         deleteButton.textContent = "Xóa";
+        deleteButton.setAttribute("aria-label", `Xóa công việc ${todo.text}`);
 
         checkbox.addEventListener("change", function () {
             onToggleTodo(todo.id, checkbox.checked);

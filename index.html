@@ -1,52 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7f6">
     <title>Tu Đu Lít</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="/gioi-thieu-o-vuong-co-dau-tich-trong-word.jpg" type="image/x-icon">
+    <link rel="icon" href="gioi-thieu-o-vuong-co-dau-tich-trong-word.jpg" type="image/x-icon">
 </head>
-
 <body>
-
-    <body>
-        <main class="todo-app">
-            <h1>TU ĐU LÍT</h1>
-
-            <form id="todo-form" class="todo-form">
-                <input id="todo-input" type="text" placeholder="Nhập công việc cần làm..." autocomplete="off">
-                <button type="submit">Thêm</button>
-            </form>
-
-            <p id="message" class="message"></p>
-            <div class="filters">
-                <button type="button" class="filter-button active" data-filter="all">
-                    Tất cả
-                </button>
-
-                <button type="button" class="filter-button" data-filter="active">
-                    Chưa xong
-                </button>
-
-                <button type="button" class="filter-button" data-filter="completed">
-                    Đã xong
-                </button>
+    <main class="todo-app" aria-labelledby="page-title">
+        <header class="app-header">
+            <p class="eyebrow">Việc cần làm</p>
+            <div class="header-copy">
+                <h1 id="page-title">TU ĐU LÍT</h1>
+                <p>Ghi lại điều quan trọng và hoàn thành từng việc một.</p>
             </div>
-            <ul id="todo-list" class="todo-list"></ul>
-
-            <p id="todo-count">Chưa có công việc nào.</p>
-        </main>
-
-        <script src="js/storage.js"></script>
-        <script src="js/ui.js"></script>
-        <script src="js/app.js"></script>
-    </body>
-    <script src="js/app.js"></script>
+        </header>
+        <form id="todo-form" class="todo-form">
+            <label class="sr-only" for="todo-input">Công việc mới</label>
+            <input id="todo-input" type="text" placeholder="Nhập công việc cần làm" autocomplete="off">
+            <button type="submit">Thêm việc</button>
+        </form>
+        <p id="message" class="message" role="alert" aria-live="polite"></p>
+        <section class="task-section" aria-labelledby="task-list-heading">
+            <div class="list-heading">
+                <h2 id="task-list-heading">Danh sách</h2>
+                <p id="todo-count" aria-live="polite">Chưa có công việc nào.</p>
+            </div>
+            <div class="filters" role="group" aria-label="Lọc công việc">
+                <button type="button" class="filter-button active" data-filter="all">Tất cả</button>
+                <button type="button" class="filter-button" data-filter="active">Chưa xong</button>
+                <button type="button" class="filter-button" data-filter="completed">Đã xong</button>
+            </div>
+            <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+        </section>
+    </main>
     <script src="js/storage.js"></script>
     <script src="js/ui.js"></script>
-
+    <script src="js/app.js"></script>
 </body>
-
 </html>
